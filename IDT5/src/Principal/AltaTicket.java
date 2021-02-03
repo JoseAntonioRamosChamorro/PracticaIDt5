@@ -19,7 +19,12 @@ import javax.swing.JTextField;
 import java.awt.Choice;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
-
+/**
+ * Clase que permite dar de alta/añadir los tiquets
+ * @author Jose
+ *@version 0.5
+ *@since 15 febrero 2021
+ */
 public class AltaTicket extends JFrame {
 
 	/**
@@ -30,6 +35,21 @@ public class AltaTicket extends JFrame {
 	private JTextField textFecha;
 	private JTextField textPrecio;
 	/**
+	 * @param contentPane
+	 *@param lbFecha  
+	 *@param textFecha sirve para escribir la fecha estilo americano
+	 *@param lbArticulos 
+	 *@param chArticulos permite seleccionar articulos para agregar al tiquet
+	 *@param AreaArticulos muestra los articulos agregados al tiquet
+	 *@param lbTotal  
+	 *@param textPrecio muestra el precio total del tiquet
+	 *@param btnAgregar permite agregar un articulo al tiquet
+	 *@param btnCrear permite crear el tiquet
+	 *@param btnVolver botón que sive para volver al menú principal
+	 *@param servidor guarda la url del servidor
+	 *@param usuarioDB guarda el usuario del servidor
+	 *@param passwordDB guarda la contraseña del servidor
+	 *@param conexion usando los datos anteriores, conecta con la BD
 	 * Create the frame.
 	 */
 	public AltaTicket() {
@@ -141,6 +161,13 @@ public class AltaTicket extends JFrame {
 
 			}
 
+			/**
+			 * 
+			 * @param con conecta con la base de datos
+			 * @param id guarda la id del articulo
+			 * @param areaArticulos muestra los articulos agregados
+			 * @param textPrecio  
+			 */
 			public void agregar(Connection con, int id, JTextArea areaArticulos, JTextField textPrecio) {
 
 				String sqlSelect = "select * from articulo where idArticulo = " + id+";";
@@ -202,6 +229,14 @@ public class AltaTicket extends JFrame {
 				int respuesta = insertar(con,textFecha.getText(),textPrecio.getText(),Integer.parseInt(AgregarLista[0]) );
 
 			}
+			/**
+			 * 
+			 * @param con guarda los parametros de conexion
+			 * @param fecha guarda la fecha del tiquet
+			 * @param precio guarda el precio del tiquet
+			 * @param idfk guarda el ID de los articulos
+			 * @return respuesta regrasa 1 si a fallado la conexion o 0 si se a completado
+			 */
 
 			private int insertar(Connection con, String fecha, String precio, int idfk) {
 				int respuesta = 0;
@@ -229,6 +264,11 @@ public class AltaTicket extends JFrame {
 		chArticulos.add("Seleccionar uno");
 		rellenarchArticulos(con,chArticulos);
 	}
+	/**
+	 * 
+	 * @param con guarda los parametros de conexion
+	 * @param chArticulos muestra los articulos de la base de datos
+	 */
 	public void rellenarchArticulos(Connection con, Choice chArticulos) {
 		String sqlSelect1 = "SELECT * FROM articulo";
 		try {

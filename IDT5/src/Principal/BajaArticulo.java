@@ -16,15 +16,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.Choice;
 import javax.swing.JButton;
-
+/**
+ * Clase que permite dar de baja/eliminar los articulos creados
+ * @author Jose
+ *@version 0.5
+ *@since 15 febrero 2021
+ */
 public class BajaArticulo extends JFrame {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
 	/**
+	 *@param lbArticulos
+	 *@param choice permite seleccionar un articlo
+	 *@param btnBorrar borra el articulo seleccionado
+	 *@param btnVolver botón que sive para volver al menú principal
+	 *@param servidor guarda la url del servidor
+	 *@param usuarioDB guarda el usuario del servidor
+	 *@param passwordDB guarda la contraseña del servidor
+	 *@param conexion usando los datos anteriores, conecta con la BD
 	 * Create the frame.
 	 */
 	public BajaArticulo() {
@@ -146,6 +156,12 @@ public class BajaArticulo extends JFrame {
 		});
 		setVisible(true);
 	}
+	/**
+	 * 
+	 * @param con permite contectar con la base de datos
+	 * @param id  guarda la id del articulo
+	 * @return si regresa 0 la insercción a sido lograda, si devuelve 1 es que a fallado  
+	 */
 	public int borrar(Connection con, int id)
 	{
 		int respuesta = 0;

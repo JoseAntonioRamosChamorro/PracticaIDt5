@@ -17,12 +17,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
-
+/**
+ * Clase que permite dar de alta los articulos/crearlos y añadirlos
+ * @author Jose
+ *@version 0.5
+ *@since 15 febrero 2021
+ */
 public class AltaArticulo extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textDes;
@@ -31,6 +33,18 @@ public class AltaArticulo extends JFrame {
 	private JButton btnVolver;
 	private JButton btnAgregar;
 	/**
+	 *
+	 *@param contentPane 
+	 *@param textDes area de texto para poner el nombre 
+	 *@param texPrec area de texto para poner el precio
+	 *@param textCant area de texto para poner la cantidad 
+	 *@param btnAgregar permite agregar el articulo
+	 *
+	 *@param btnVolver botón que sive para volver al menú principal
+	 *@param servidor guarda la url del servidor
+	 *@param usuarioDB guarda el usuario del servidor
+	 *@param passwordDB guarda la contraseña del servidor
+	 *@param conexion usando los datos anteriores, conecta con la BD
 	 * Create the frame.
 	 */
 	public AltaArticulo() {
@@ -131,7 +145,14 @@ public class AltaArticulo extends JFrame {
 				int respuesta = insertar(con, textDes.getText(), texPrec.getText(),textCant.getText());
 				desconectar(con);
 			}
-
+			/**
+			 * 
+			 * @param con permite contectar con la base de datos
+			 * @param descripcion guarda el nombre del articulo
+			 * @param precio guarda el precio del articulo
+			 * @param cantidad guarda la cantidad del articulo
+			 * @return si regresa 0 la insercción a sido lograda, si devuelve 1 es que a fallado 
+			 */
 			public int insertar(Connection con, String descripcion, String precio, String cantidad) {
 				int respuesta = 0;
 
@@ -155,6 +176,10 @@ public class AltaArticulo extends JFrame {
 	}
 
 	//conectar y desconectar  Connection con = conectar();  desconectar(con);
+	/**
+	 * 
+	 * @return con si vuelve como null fallo la conexion 
+	 */
 	public static Connection conectar()
 	{
 		String BD = "tienda";

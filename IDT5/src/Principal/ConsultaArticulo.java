@@ -16,7 +16,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-
+/**
+ * Clase que muestra los articulos creados/ dados de alta
+ * @author Jose
+ *@version 0.5
+ *@since 15 febrero 2021
+ */
 public class ConsultaArticulo extends JFrame {
 
 	/**
@@ -25,6 +30,14 @@ public class ConsultaArticulo extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	/**
+	 *@param lbArticulos 
+	 *@param textArea muestra todos los articulos creados
+	 *
+	 * @param btnVolver botón que sive para volver al menú principal
+	 *@param servidor guarda la url del servidor
+	 *@param usuarioDB guarda el usuario del servidor
+	 *@param passwordDB guarda la contraseña del servidor
+	 *@param conexion usando los datos anteriores, conecta con la BD
 	 * Create the frame.
 	 */
 	public ConsultaArticulo() {
@@ -77,6 +90,11 @@ public class ConsultaArticulo extends JFrame {
 		setVisible(true);
 		desconectar(con);
 	}
+	/**
+	 * 
+	 * @param con permite contectar con la base de datos
+	 * @param t muestra todos los articulos agregados
+	 */
 	public void rellenarTextArea(Connection con, JTextArea t) {
 
 		String sqlSelect = "SELECT * FROM articulo";

@@ -17,16 +17,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JTextArea;
-
+/**
+ * Clase que permite dar de alta los articulos/crearlos y añadirlos
+ * @author Jose
+ *@version 0.5
+ *@since 15 febrero 2021
+ */
 public class ConsultaTicket extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
+	 *@param JPanel panel que mantiene los parametros
+	 *@param lbTickets maca que empieza la lista de tiquets
+	 *@param textAreaTickets muestra los tiquets
+	 *
+	 *@param btnVolver botón que sive para volver al menú principal
+	 *@param servidor guarda la url del servidor
+	 *@param usuarioDB guarda el usuario del servidor
+	 *@param passwordDB guarda la contraseña del servidor
+	 *@param conexion usando los datos anteriores, conecta con la BD
 	 * Create the frame.
 	 */
 	public ConsultaTicket() {
@@ -79,6 +90,11 @@ public class ConsultaTicket extends JFrame {
 		setVisible(true);
 		desconectar(con);
 	}
+	/**
+	 * 
+	 * @param con permite contectar con la base de datos
+	 * @param t muestra todos los tiquets agregados
+	 */
 	public void rellenarTextArea(Connection con, JTextArea t) {
 		String sqlSelect = "SELECT * FROM ticket";
 		try {

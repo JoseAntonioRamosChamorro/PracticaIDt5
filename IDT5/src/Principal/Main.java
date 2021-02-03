@@ -28,21 +28,19 @@ import java.sql.DriverManager;
 import java.util.HashMap;
 
 import javax.swing.JButton;
-
+/**
+ * Clase navegador, permite ir a las otras clases
+ * @author Jose
+ *@version 0.5
+ *@since 15 febrero 2021
+ */
 public class Main extends JFrame {
-	//Frames
 
-
-
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
+	 * @param contentPane Panel para mantener el orden de los otros parametros
 	 * Launch the application.
 	 */
 
@@ -61,9 +59,30 @@ public class Main extends JFrame {
 
 	/**
 	 * Create the frame.
-	 *
+	 *@param lblArticulos indica que los botones que hay debajo de este son para las funciones de los articulos
+	 *@param lblTickets indica que los botones que hay debajo de este son para las funciones de los tiquets
+	 *@param btnAltaA botón que lleva a la opcion para dar de alta los articulos
+	 *@param btnAltaT botón que lleva a la opcion para dar de alta los tiquets
+	 *@param btnBaja botón que lleva a la opcion para dar de baja los articulos
+	 *@param btnCon botón que lleva a la opcion de consulta de los articulos
+	 *@param btnConT  botón que lleva a la opcion de consulta de los tiquets
+	 *@param btnMd botón que lleva a la opcion de modificación de los articulos
+	 *@param btnReportArticulos botón que crea un archivo ireport con los datos de los articulos dados de alta
+	 *@param btnIreport botón que lleva a la opción para crear el archivo ireport de los tiquets
+	 *@param c2t lleva a la clase IreportTicket
+	 *@param AA lleva a la clase AltaArticulo
+	 *@param AT lleva a la clase AltaTicket 
+	 *@param CA lleva a la clase ConsultaArticulo 
+	 *@param CT lleva a la clase ConsultaTicket 
+	 *@param BA lleva a la clase BajaArticulo 
+	 *@param MA lleva a la clase ModificarArticulo 
+	 *@param servidor guarda la url del servidor
+	 *@param usuarioDB guarda el usuario del servidor
+	 *@param passwordDB guarda la contraseña del servidor
+	 *@param conexion usando los datos anteriores, conecta con la BD
+	 *@param print Completar el informe con los datos de la base de datos
+	 *@param path abre el pdf
 	 */
-
 	public Main() {
 		setTitle("Main");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -149,6 +168,10 @@ public class Main extends JFrame {
 		gbc_btnIreport.gridx = 7;
 		gbc_btnIreport.gridy = 7;
 		contentPane.add(btnIreport, gbc_btnIreport);
+		
+		/**
+		 * Dandole funcionalidad a los botones
+		 */
 		btnIreport.addActionListener(new ActionListener() {
 
 			@Override
@@ -204,7 +227,6 @@ public class Main extends JFrame {
 			}
 		});
 		btnReportArticulos.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try

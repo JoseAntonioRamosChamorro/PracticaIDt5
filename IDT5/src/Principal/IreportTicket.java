@@ -28,7 +28,12 @@ import java.util.HashMap;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
-
+/**
+ * Clase que permite añadir el limite de fechas para luego crear el archivo ireport con esas limitaciones
+ * @author Jose
+ *@version 0.5
+ *@since 15 febrero 2021
+ */
 public class IreportTicket extends JFrame {
 
 	private static final long serialVersionUID = 1L;

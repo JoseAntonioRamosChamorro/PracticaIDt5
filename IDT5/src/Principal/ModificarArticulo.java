@@ -18,11 +18,32 @@ import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
-
+/**
+ * Esta clase permite modificar los articulos añadidos
+ * @author Jose
+ *@version 0.5
+ *@since 15 febrero 2021
+ */
 public class ModificarArticulo extends JFrame {
-
 	/**
+	 * @param contentPane Panel para mantener el orden de los otros parametros
+	 * @param textDescrip guarda el nombre del articulo
+	 * @param textPrecio guarda el precio del articulo
+	 * @param textCant	guarda la cantidad que queda del producto
+	 * @param lbSeleccionar anuncia que se debe seleccionar una opción en el desplegable que hay a continuación
+	 * @param choice muestra los articulos guardados en la base de datos
+	 * @param lbdescripcion marca el nombre del articulos
+	 * @param LBPrecio marca el precio del articulos
+	 * @param LBCantidad marca la cantidad del articulos
+	 * @param btnMod botón que sirve para modificar con los datos nuevos agregados
+	 * @param btnRellenar botón que sirve para rellenar con los datos del articulo seleccionado
 	 * 
+	 * @param btnVolver botón que sive para volver al menú principal
+	 *@param servidor guarda la url del servidor
+	 *@param usuarioDB guarda el usuario del servidor
+	 *@param passwordDB guarda la contraseña del servidor
+	 *@param conexion usando los datos anteriores, conecta con la BD
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -31,9 +52,7 @@ public class ModificarArticulo extends JFrame {
 	private JTextField textCant;
 
 
-	/**
-	 * Create the frame.
-	 */
+
 	public ModificarArticulo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 419, 300);
@@ -61,12 +80,12 @@ public class ModificarArticulo extends JFrame {
 		gbc_choice.gridy = 1;
 		contentPane.add(choice, gbc_choice);
 		
-		JLabel lblNewLabel = new JLabel("Descripci\u00F3n");
+		JLabel lbdescripcion = new JLabel("Descripci\u00F3n");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel.gridx = 3;
 		gbc_lblNewLabel.gridy = 3;
-		contentPane.add(lblNewLabel, gbc_lblNewLabel);
+		contentPane.add(lbdescripcion, gbc_lblNewLabel);
 		
 		textDescrip = new JTextField();
 		GridBagConstraints gbc_textDescrip = new GridBagConstraints();
@@ -77,12 +96,12 @@ public class ModificarArticulo extends JFrame {
 		contentPane.add(textDescrip, gbc_textDescrip);
 		textDescrip.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Precio");
+		JLabel LBPrecio = new JLabel("Precio");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_1.gridx = 3;
 		gbc_lblNewLabel_1.gridy = 5;
-		contentPane.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		contentPane.add(LBPrecio, gbc_lblNewLabel_1);
 		
 		textPrecio = new JTextField();
 		GridBagConstraints gbc_textPrecio = new GridBagConstraints();
@@ -93,12 +112,12 @@ public class ModificarArticulo extends JFrame {
 		contentPane.add(textPrecio, gbc_textPrecio);
 		textPrecio.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Cantidad");
+		JLabel LBCantidad = new JLabel("Cantidad");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_2.gridx = 3;
 		gbc_lblNewLabel_2.gridy = 7;
-		contentPane.add(lblNewLabel_2, gbc_lblNewLabel_2);
+		contentPane.add(LBCantidad, gbc_lblNewLabel_2);
 		
 		textCant = new JTextField();
 		GridBagConstraints gbc_textCant = new GridBagConstraints();
@@ -137,6 +156,7 @@ public class ModificarArticulo extends JFrame {
 
 			}
 		});
+
 		// Montar el Choice
 		choice.add("Seleccionar uno...");
 		// Conectar a la base de datos
@@ -188,8 +208,14 @@ public class ModificarArticulo extends JFrame {
 				
 				
 			}
-			private void CompletarCantidad(Connection con2, int parseInt, JTextField textCant) {
-				String sqlSelect = "SELECT * FROM articulo WHERE idArticulo =" + parseInt;
+			/**
+			 * 
+			 * @param con2 permite contectar con la base de datos
+			 * @param id guarda la id del articulo
+			 * @param textCant muestra la cantidad
+			 */
+			private void CompletarCantidad(Connection con2, int id, JTextField textCant) {
+				String sqlSelect = "SELECT * FROM articulo WHERE idArticulo =" + id;
 				try {
 					// CREAR UN STATEMENT PARA UNA CONSULTA SELECT
 					Statement stmt = con2.createStatement();
@@ -213,6 +239,13 @@ public class ModificarArticulo extends JFrame {
 					ex.printStackTrace();
 				}
 			}
+			
+			/**
+			 * 
+			 * @param con2 permite contectar con la base de datos
+			 * @param parseInt guarda la id del articulo
+			 * @param textPrecio guarda el precio del articulo
+			 */
 			private void CompletarPrecio(Connection con2, int parseInt, JTextField textPrecio) {
 				String sqlSelect = "SELECT * FROM articulo WHERE idArticulo =" + parseInt;
 				try {
@@ -239,6 +272,12 @@ public class ModificarArticulo extends JFrame {
 				}
 				
 			}
+			/**
+			 * 
+			 * @param con2 permite contectar con la base de datos
+			 * @param parseInt guarda la id del articulo
+			 * @param textDescrip guarda el nombre del articulo
+			 */
 			private void CompletarDescripcion(Connection con2, int parseInt, JTextField textDescrip) {
 				String sqlSelect = "SELECT * FROM articulo WHERE idArticulo =" + parseInt;
 				try {
@@ -322,6 +361,15 @@ public class ModificarArticulo extends JFrame {
 				
 				
 			}
+			/**
+			 * 
+			 * @param con2 permite contectar con la base de datos
+			 * @param parseInt guarda la id del articulo	
+			 * @param textDescrip guarda el nombre del articulo
+			 * @param textPrecio guarda el precio del articulo
+			 * @param textcantidad guarda la cantidad del articulo
+			 * @return si regresa 0 la insercción a sido lograda, si devuelve 1 es que a fallado 
+			 */
 			private int modificar(Connection con2, int parseInt, String textDescrip, String textPrecio, String textcantidad) {
 				int respuesta = 0;
 				String sql = "update articulo set Descripcion ='"+textDescrip+"', Precio = '"+textPrecio+"'"
