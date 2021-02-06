@@ -32,21 +32,6 @@ public class AltaArticulo extends JFrame {
 	private JTextField textCant;
 	private JButton btnVolver;
 	private JButton btnAgregar;
-	/**
-	 *
-	 *@param contentPane 
-	 *@param textDes area de texto para poner el nombre 
-	 *@param texPrec area de texto para poner el precio
-	 *@param textCant area de texto para poner la cantidad 
-	 *@param btnAgregar permite agregar el articulo
-	 *
-	 *@param btnVolver botón que sive para volver al menú principal
-	 *@param servidor guarda la url del servidor
-	 *@param usuarioDB guarda el usuario del servidor
-	 *@param passwordDB guarda la contraseña del servidor
-	 *@param conexion usando los datos anteriores, conecta con la BD
-	 * Create the frame.
-	 */
 	public AltaArticulo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -202,6 +187,10 @@ public class AltaArticulo extends JFrame {
 
 		return con;
 	}
+	/**
+	 * 
+	 * @param con llama a la funcion conectar para cerrarla y desconectar de la BD
+	 */
 	public static void desconectar(Connection con)
 	{
 		try

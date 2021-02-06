@@ -27,19 +27,6 @@ public class ConsultaTicket extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	/**
-	 *@param JPanel panel que mantiene los parametros
-	 *@param lbTickets maca que empieza la lista de tiquets
-	 *@param textAreaTickets muestra los tiquets
-	 *
-	 *@param btnVolver botón que sive para volver al menú principal
-	 *@param servidor guarda la url del servidor
-	 *@param usuarioDB guarda el usuario del servidor
-	 *@param passwordDB guarda la contraseña del servidor
-	 *@param conexion usando los datos anteriores, conecta con la BD
-	 * Create the frame.
-	 */
 	public ConsultaTicket() {
 		Connection con = conectar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -128,6 +115,10 @@ public class ConsultaTicket extends JFrame {
 		}
 	}
 	//conectar y desconectar  Connection con = conectar();  desconectar(con);
+	/**
+	 * 
+	 * @return si regresa "null" la conexión ha fallado 
+	 */
 	public static Connection conectar()
 	{
 		String BD = "tienda";
@@ -150,6 +141,10 @@ public class ConsultaTicket extends JFrame {
 
 		return con;
 	}
+	/**
+	 * 
+	 * @param con llama a la funcion conectar para cerrarla y desconectar de la BD
+	 */
 	public static void desconectar(Connection con)
 	{
 		try

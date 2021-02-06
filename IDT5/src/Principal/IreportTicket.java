@@ -40,9 +40,7 @@ public class IreportTicket extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	/**
-	 * Create the frame.
-	 */
+
 	public IreportTicket() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 350, 222);

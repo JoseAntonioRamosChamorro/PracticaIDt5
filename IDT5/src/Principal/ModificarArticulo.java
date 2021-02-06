@@ -25,26 +25,6 @@ import javax.swing.JTextField;
  *@since 15 febrero 2021
  */
 public class ModificarArticulo extends JFrame {
-	/**
-	 * @param contentPane Panel para mantener el orden de los otros parametros
-	 * @param textDescrip guarda el nombre del articulo
-	 * @param textPrecio guarda el precio del articulo
-	 * @param textCant	guarda la cantidad que queda del producto
-	 * @param lbSeleccionar anuncia que se debe seleccionar una opción en el desplegable que hay a continuación
-	 * @param choice muestra los articulos guardados en la base de datos
-	 * @param lbdescripcion marca el nombre del articulos
-	 * @param LBPrecio marca el precio del articulos
-	 * @param LBCantidad marca la cantidad del articulos
-	 * @param btnMod botón que sirve para modificar con los datos nuevos agregados
-	 * @param btnRellenar botón que sirve para rellenar con los datos del articulo seleccionado
-	 * 
-	 * @param btnVolver botón que sive para volver al menú principal
-	 *@param servidor guarda la url del servidor
-	 *@param usuarioDB guarda el usuario del servidor
-	 *@param passwordDB guarda la contraseña del servidor
-	 *@param conexion usando los datos anteriores, conecta con la BD
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textDescrip;
@@ -395,6 +375,10 @@ public class ModificarArticulo extends JFrame {
 		setVisible(true);
 	}
 	//conectar y desconectar  Connection con = conectar();  desconectar(con);
+	/**
+	 * 
+	 * @return si regresa "null" la conexión ha fallado 
+	 */
 		public static Connection conectar()
 		{
 			String BD = "tienda";
@@ -417,6 +401,10 @@ public class ModificarArticulo extends JFrame {
 
 			return con;
 		}
+		/**
+		 * 
+		 * @param con con llama a la funcion conectar para cerrarla y desconectar de la BD
+		 */
 		public static void desconectar(Connection con)
 		{
 			try
