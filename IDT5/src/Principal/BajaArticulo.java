@@ -146,7 +146,7 @@ public class BajaArticulo extends JFrame {
 		setVisible(true);
 	}
 	/**
-	 * 
+	 * Selecciona y borra un articulo de la BD
 	 * @param con permite contectar con la base de datos
 	 * @param id  guarda la id del articulo
 	 * @return si regresa 0 la insercción a sido lograda, si devuelve 1 es que a fallado  
@@ -175,7 +175,7 @@ public class BajaArticulo extends JFrame {
 	}
 	//conectar y desconectar  Connection con = conectar();  desconectar(con);
 	/**
-	 * 
+	 * Conecta con la base de datos
 	 * @return si regresa "null" la conexión ha fallado 
 	 */
 	public static Connection conectar()
@@ -201,7 +201,7 @@ public class BajaArticulo extends JFrame {
 		return con;
 	}
 	/**
-	 * 
+	 * Desconecta con la base de datos
 	 * @param con llama a la funcion conectar para cerrarla y desconectar de la BD
 	 */
 	public static void desconectar(Connection con)

@@ -142,7 +142,7 @@ public class AltaTicket extends JFrame {
 			}
 
 			/**
-			 * 
+			 * Agrega los articulos a la lista de la compra 
 			 * @param con conecta con la base de datos
 			 * @param id guarda la id del articulo
 			 * @param areaArticulos muestra los articulos agregados
@@ -210,7 +210,7 @@ public class AltaTicket extends JFrame {
 
 			}
 			/**
-			 * 
+			 * Agrega a la BD la información del tiquet
 			 * @param con guarda los parametros de conexion
 			 * @param fecha guarda la fecha del tiquet
 			 * @param precio guarda el precio del tiquet
@@ -245,7 +245,7 @@ public class AltaTicket extends JFrame {
 		rellenarchArticulos(con,chArticulos);
 	}
 	/**
-	 * 
+	 * Agrega el choice los articulos dados de alta para que puedan agregalo a la lista
 	 * @param con guarda los parametros de conexion
 	 * @param chArticulos muestra los articulos de la base de datos
 	 */
@@ -274,7 +274,7 @@ public class AltaTicket extends JFrame {
 	}
 	//conectar y desconectar
 	/**
-	 * 
+	 * Conecta con la base de datos
 	 * @return si regresa "null" la conexión ha fallado 
 	 */
 	public static Connection conectar()
@@ -300,7 +300,7 @@ public class AltaTicket extends JFrame {
 		return con;
 	}
 	/**
-	 * 
+	 * Desconecta con la base de datos
 	 * @param con llama a la funcion conectar para cerrarla y desconectar de la BD
 	 */
 	public static void desconectar(Connection con)

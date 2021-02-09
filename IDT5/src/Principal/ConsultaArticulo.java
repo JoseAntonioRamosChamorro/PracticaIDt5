@@ -78,7 +78,7 @@ public class ConsultaArticulo extends JFrame {
 		desconectar(con);
 	}
 	/**
-	 * 
+	 * Rellena una zona de texto con los articulos de la BD
 	 * @param con permite contectar con la base de datos
 	 * @param t muestra todos los articulos agregados
 	 */
@@ -119,7 +119,7 @@ public class ConsultaArticulo extends JFrame {
 	}
 	//conectar y desconectar  Connection con = conectar();  desconectar(con);
 	/**
-	 * 
+	 * Conecta con la base de datos
 	 * @return si regresa "null" la conexión ha fallado 
 	 */
 	public static Connection conectar()
@@ -145,7 +145,7 @@ public class ConsultaArticulo extends JFrame {
 		return con;
 	}
 	/**
-	 * 
+	 * Desconecta con la base de datos
 	 * @param con llama a la funcion conectar para cerrarla y desconectar de la BD
 	 */
 	public static void desconectar(Connection con)

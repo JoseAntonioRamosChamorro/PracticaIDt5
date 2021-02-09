@@ -131,7 +131,7 @@ public class AltaArticulo extends JFrame {
 				desconectar(con);
 			}
 			/**
-			 * 
+			 * Agrega a la base de datos el articulo con los datos recojidos 
 			 * @param con permite contectar con la base de datos
 			 * @param descripcion guarda el nombre del articulo
 			 * @param precio guarda el precio del articulo
@@ -162,7 +162,7 @@ public class AltaArticulo extends JFrame {
 
 	//conectar y desconectar  Connection con = conectar();  desconectar(con);
 	/**
-	 * 
+	 * Conecta con la base de datos
 	 * @return con si vuelve como null fallo la conexion 
 	 */
 	public static Connection conectar()
@@ -188,7 +188,7 @@ public class AltaArticulo extends JFrame {
 		return con;
 	}
 	/**
-	 * 
+	 * Desconecta con la base de datos
 	 * @param con llama a la funcion conectar para cerrarla y desconectar de la BD
 	 */
 	public static void desconectar(Connection con)

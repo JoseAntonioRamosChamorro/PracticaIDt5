@@ -1,4 +1,4 @@
-package Principal;
+	package Principal;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -189,7 +189,7 @@ public class ModificarArticulo extends JFrame {
 				
 			}
 			/**
-			 * 
+			 * Selecciona la cantidad de un articulo que hay en la BD y la muestra en su zona de texto correspondiente
 			 * @param con2 permite contectar con la base de datos
 			 * @param id guarda la id del articulo
 			 * @param textCant muestra la cantidad
@@ -221,7 +221,7 @@ public class ModificarArticulo extends JFrame {
 			}
 			
 			/**
-			 * 
+			 * Selecciona el precio de un articulo que hay en la BD y la muestra en su zona de texto correspondiente
 			 * @param con2 permite contectar con la base de datos
 			 * @param parseInt guarda la id del articulo
 			 * @param textPrecio guarda el precio del articulo
@@ -253,7 +253,7 @@ public class ModificarArticulo extends JFrame {
 				
 			}
 			/**
-			 * 
+			 * Selecciona la descripcion de un articulo que hay en la BD y la muestra en su zona de texto correspondiente
 			 * @param con2 permite contectar con la base de datos
 			 * @param parseInt guarda la id del articulo
 			 * @param textDescrip guarda el nombre del articulo
@@ -342,7 +342,7 @@ public class ModificarArticulo extends JFrame {
 				
 			}
 			/**
-			 * 
+			 * Modifica el articulo seleccionado con los datos nuevos y los agrega a la BD
 			 * @param con2 permite contectar con la base de datos
 			 * @param parseInt guarda la id del articulo	
 			 * @param textDescrip guarda el nombre del articulo
@@ -376,7 +376,7 @@ public class ModificarArticulo extends JFrame {
 	}
 	//conectar y desconectar  Connection con = conectar();  desconectar(con);
 	/**
-	 * 
+	 *  Conecta con la base de datos
 	 * @return si regresa "null" la conexión ha fallado 
 	 */
 		public static Connection conectar()
@@ -402,7 +402,7 @@ public class ModificarArticulo extends JFrame {
 			return con;
 		}
 		/**
-		 * 
+		 * Desconecta con la base de datos
 		 * @param con con llama a la funcion conectar para cerrarla y desconectar de la BD
 		 */
 		public static void desconectar(Connection con)
